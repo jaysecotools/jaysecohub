@@ -346,9 +346,47 @@ function initUI(){
     else { root.setAttribute('data-theme','dark'); themeToggle.textContent='Light'; localStorage.setItem('jr_theme','dark') }
   });
 
-  const openAll = document.getElementById('openAll'); const closeAll = document.getElementById('closeAll'); const groups = document.querySelectorAll('section.group');
-  openAll.addEventListener('click', ()=> groups.forEach(g=> { g.classList.remove('group-closed'); g.classList.add('group-open'); }));
-  closeAll.addEventListener('click', ()=> groups.forEach(g=> { g.classList.remove('group-open'); g.classList.add('group-closed'); }));
+  // robust open/close handlers (replaces the simpler handlers)
+  const openAll = document.getElementById('openAll');
+  const closeAll = document.getElementById('closeAll');
+  const groups = Array.from(document.querySelectorAll('section.group'));
+
+  if(!openAll) console.warn('openAll button not found');
+  if(!closeAll) console.warn('closeAll button not found');
+  if(groups.length === 0) console.warn('No .group sections found');
+
+  function expandGroup(g){
+    g.classList.remove('group-closed');
+    g.classList.add('group-open');
+    const coll = g.querySelector('.collapsible');
+    if(coll){
+      // set an explicit maxHeight to override any inline 0 or previous value,
+      // using scrollHeight so the transition animates to the correct height.
+      coll.style.maxHeight = coll.scrollHeight + 'px';
+      // remove any display:none so it respects height if that's ever set
+      coll.style.display = '';
+    }
+  }
+
+  function collapseGroup(g){
+    g.classList.remove('group-open');
+    g.classList.add('group-closed');
+    const coll = g.querySelector('.collapsible');
+    if(coll){
+      // set maxHeight to 0 so it collapses regardless of CSS rules/inline styles
+      coll.style.maxHeight = '0px';
+    }
+  }
+
+  openAll?.addEventListener('click', () => {
+    groups.forEach(expandGroup);
+    console.debug('Open all triggered — expanded', groups.length, 'groups');
+  });
+
+  closeAll?.addEventListener('click', () => {
+    groups.forEach(collapseGroup);
+    console.debug('Close all triggered — collapsed', groups.length, 'groups');
+  });
 
   const searchBox = document.getElementById('searchBox'); const clearBtn = document.getElementById('clearSearch');
   function normalize(s){ return s?.toString().toLowerCase().trim() }
