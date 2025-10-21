@@ -5,8 +5,7 @@
     "url":"https://jaysecotools.github.io/AHCECR309-Learning-Resource/",
     "section":"learning",
     "tags":["learning","inspection"],
-    "desc":"Interactive modules and practical exercises for conducting ecological and cultural site inspections (AHCECR309).",
-    "badge":"Quick start"
+    "desc":"Interactive modules and practical exercises for conducting ecological and cultural site inspections (Conduct Ecological and Cultural Site Inspections).",
   },
   {
     "id":"maintenance-ref",
@@ -15,14 +14,6 @@
     "section":"learning",
     "tags":["learning","reference","maintenance"],
     "desc":"Stepwise guidance and field tips for common maintenance tasks and restoration workflows."
-  },
-  {
-    "id":"image-explorer",
-    "title":"Annotated Image Explorer",
-    "url":"https://jaysecotools.github.io/Interactive-Image-Marker-Tool/",
-    "section":"learning",
-    "tags":["learning","images"],
-    "desc":"Labelled, linked images for students to explore site features, plant parts and cultural markers."
   },
   {
     "id":"ecoquest",
@@ -57,14 +48,6 @@
     "desc":"Comprehensive ecosystem simulation with multiple species, interactions and environmental variables."
   },
   {
-    "id":"organism-sim",
-    "title":"Species & Organism Simulator",
-    "url":"https://jaysecotools.github.io/Enhanced-Organism-Simulation/",
-    "section":"sim",
-    "tags":["simulation","organism"],
-    "desc":"Focused organism-level simulation for detailed population experiments and teaching."
-  },
-  {
     "id":"ecosim-v2",
     "title":"Ecosystem Simulator v2.5",
     "url":"https://jaysecotools.github.io/Eco-Sim-v2.5/",
@@ -94,11 +77,11 @@
     "url":"https://jaysecotools.github.io/NativeEcosystemMaintenanceToolAHCECR301/",
     "section":"planning",
     "tags":["planning","maintenance"],
-    "desc":"Log maintenance activities and track condition in native ecosystem areas."
+    "desc":"Log maintenance activities and track condition in native ecosystem areas. (Maintain Native Ecosystem Areas)"
   },
   {
     "id":"maintenance-dashboard",
-    "title":"Ecosystem Maintenance Dashboard",
+    "title":"Simplified Ecosystem Maintenance Dashboard",
     "url":"https://jaysecotools.github.io/Ecosystem-maintenance-tool-usable/",
     "section":"planning",
     "tags":["planning","dashboard"],
@@ -106,7 +89,7 @@
   },
   {
     "id":"eco-manager",
-    "title":"Environmental Management Dashboard",
+    "title":"Advanced Environmental Management Dashboard",
     "url":"https://jaysecotools.github.io/EcoManager-Pro/",
     "section":"planning",
     "tags":["planning","dashboard"],
@@ -114,7 +97,7 @@
   },
   {
     "id":"leap",
-    "title":"Environmental Action Planner",
+    "title":"Environmental Action Planner (LEAP)",
     "url":"https://jaysecotools.github.io/LEAP-Environmental-Action-Planner/",
     "section":"planning",
     "tags":["planning","actions"],
@@ -158,7 +141,7 @@
     "url":"https://jaysecotools.github.io/ECSA-Tool/",
     "section":"assess",
     "tags":["assessment","scoring"],
-    "desc":"Score and track ecosystem condition with simple metrics and repeatable surveys."
+    "desc":"Score and track ecosystem condition with simple metrics and repeatable surveys. (Ecosystem and Cultural Site Inspections)"
   },
   {
     "id":"ecovision",
@@ -186,7 +169,7 @@
   },
   {
     "id":"enviroimpact",
-    "title":"EnviroImpact Assessment Tool",
+    "title":"Simple Environmental Impact Assessment Tool",
     "url":"https://jaysecotools.github.io/EnviroImpactUpgrade/",
     "section":"assess",
     "tags":["assessment","eia"],
@@ -194,7 +177,7 @@
   },
   {
     "id":"eiatool",
-    "title":"Environmental Impact Assessment Tool v3.2.3",
+    "title":"Advanced Environmental Impact Assessment Tool",
     "url":"https://jaysecotools.github.io/EIAToolv3.2.3/",
     "section":"assess",
     "tags":["assessment","eia"],
