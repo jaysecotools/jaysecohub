@@ -1,0 +1,211 @@
+[
+  {
+    "id":"ahcecr309",
+    "title":"Ecological & Cultural Site Inspection Guide",
+    "url":"https://jaysecotools.github.io/AHCECR309-Learning-Resource/",
+    "section":"learning",
+    "tags":["learning","inspection"],
+    "desc":"Interactive modules and practical exercises for conducting ecological and cultural site inspections (AHCECR309).",
+    "badge":"Quick start"
+  },
+  {
+    "id":"maintenance-ref",
+    "title":"Ecosystem Maintenance Reference",
+    "url":"https://jaysecotools.github.io/Ecosystem-Maintenance-Learning-Guide/",
+    "section":"learning",
+    "tags":["learning","reference","maintenance"],
+    "desc":"Stepwise guidance and field tips for common maintenance tasks and restoration workflows."
+  },
+  {
+    "id":"image-explorer",
+    "title":"Annotated Image Explorer",
+    "url":"https://jaysecotools.github.io/Interactive-Image-Marker-Tool/",
+    "section":"learning",
+    "tags":["learning","images"],
+    "desc":"Labelled, linked images for students to explore site features, plant parts and cultural markers."
+  },
+  {
+    "id":"ecoquest",
+    "title":"EcoQuest Adventure",
+    "url":"https://jaysecotools.github.io/EcoQuest_AI/",
+    "section":"learning",
+    "tags":["learning","game"],
+    "desc":"A choose-your-own-adventure learning experience with realistic ecosystem scenarios and decisions."
+  },
+  {
+    "id":"env-decision-sim",
+    "title":"Environmental Decision Simulator",
+    "url":"https://jaysecotools.github.io/Environmental-Management-Simulation-Tool/",
+    "section":"sim",
+    "tags":["simulation","decision"],
+    "desc":"Interactive scenario modelling for ecosystem management decisions and outcomes."
+  },
+  {
+    "id":"pop-dynamics",
+    "title":"Population Dynamics Simulator",
+    "url":"https://jaysecotools.github.io/Population-dynamics-learning-tool/",
+    "section":"sim",
+    "tags":["simulation","population"],
+    "desc":"Experiment with species population changes and predator–prey dynamics with variable inputs."
+  },
+  {
+    "id":"ecosimv3",
+    "title":"Ecosystem Simulator v3",
+    "url":"https://jaysecotools.github.io/EcoSimv3/",
+    "section":"sim",
+    "tags":["simulation","ecosystem"],
+    "desc":"Comprehensive ecosystem simulation with multiple species, interactions and environmental variables."
+  },
+  {
+    "id":"organism-sim",
+    "title":"Species & Organism Simulator",
+    "url":"https://jaysecotools.github.io/Enhanced-Organism-Simulation/",
+    "section":"sim",
+    "tags":["simulation","organism"],
+    "desc":"Focused organism-level simulation for detailed population experiments and teaching."
+  },
+  {
+    "id":"ecosim-v2",
+    "title":"Ecosystem Simulator v2.5",
+    "url":"https://jaysecotools.github.io/Eco-Sim-v2.5/",
+    "section":"sim",
+    "tags":["simulation","legacy"],
+    "desc":"Earlier version of the simulator — useful for legacy examples or comparison."
+  },
+  {
+    "id":"ser-planner",
+    "title":"Restoration Project Planner",
+    "url":"https://jaysecotools.github.io/SER-based-Project-Planner/",
+    "section":"planning",
+    "tags":["planning","restoration"],
+    "desc":"SER-based stepwise planner for restoration works and timelines, project scoping and sequencing."
+  },
+  {
+    "id":"restoration-manager",
+    "title":"Restoration Project Manager",
+    "url":"https://jaysecotools.github.io/Ecological-Restoration-Project-Manager/",
+    "section":"planning",
+    "tags":["planning","manager"],
+    "desc":"Manage restoration project schedules, resources, and progress tracking in a single place."
+  },
+  {
+    "id":"native-tracker",
+    "title":"Native Ecosystem Tracker",
+    "url":"https://jaysecotools.github.io/NativeEcosystemMaintenanceToolAHCECR301/",
+    "section":"planning",
+    "tags":["planning","maintenance"],
+    "desc":"Log maintenance activities and track condition in native ecosystem areas."
+  },
+  {
+    "id":"maintenance-dashboard",
+    "title":"Ecosystem Maintenance Dashboard",
+    "url":"https://jaysecotools.github.io/Ecosystem-maintenance-tool-usable/",
+    "section":"planning",
+    "tags":["planning","dashboard"],
+    "desc":"Overview of maintenance tasks, monitoring logs and site notes — a hub for daily work."
+  },
+  {
+    "id":"eco-manager",
+    "title":"Environmental Management Dashboard",
+    "url":"https://jaysecotools.github.io/EcoManager-Pro/",
+    "section":"planning",
+    "tags":["planning","dashboard"],
+    "desc":"High-level dashboard for planning and monitoring environmental projects and outcomes."
+  },
+  {
+    "id":"leap",
+    "title":"Environmental Action Planner",
+    "url":"https://jaysecotools.github.io/LEAP-Environmental-Action-Planner/",
+    "section":"planning",
+    "tags":["planning","actions"],
+    "desc":"Plan, allocate and track environmental actions and tasks across projects."
+  },
+  {
+    "id":"simple-eia",
+    "title":"Simple Environmental Impact Tool",
+    "url":"https://jaysecotools.github.io/Basic-Environmental-Impact-Assessment/",
+    "section":"assess",
+    "tags":["assessment","eia"],
+    "desc":"Basic tool for scoping environmental impacts and producing a simple report."
+  },
+  {
+    "id":"bio-basic",
+    "title":"Basic Biosecurity Plan Tool",
+    "url":"https://jaysecotools.github.io/Basic-Biosecurity-Plan-Generator-/",
+    "section":"assess",
+    "tags":["assessment","biosecurity"],
+    "desc":"Create straightforward biosecurity plans for field operations."
+  },
+  {
+    "id":"bio-advanced",
+    "title":"Advanced Biosecurity Plan Tool",
+    "url":"https://jaysecotools.github.io/Premium-Biosecurity-Plan-Generator/",
+    "section":"assess",
+    "tags":["assessment","biosecurity"],
+    "desc":"Generate more detailed biosecurity plans for complex sites and operations."
+  },
+  {
+    "id":"bio-assess",
+    "title":"Biosecurity Assessment Tool",
+    "url":"https://jaysecotools.github.io/BiosecurityAssessmentUpdate2/",
+    "section":"assess",
+    "tags":["assessment","biosecurity"],
+    "desc":"Interactive assessment for evaluating biosecurity controls and risk on site."
+  },
+  {
+    "id":"ecsa",
+    "title":"Ecosystem Condition Scoring Tool",
+    "url":"https://jaysecotools.github.io/ECSA-Tool/",
+    "section":"assess",
+    "tags":["assessment","scoring"],
+    "desc":"Score and track ecosystem condition with simple metrics and repeatable surveys."
+  },
+  {
+    "id":"ecovision",
+    "title":"Ecosystem Visualisation Dashboard",
+    "url":"https://jaysecotools.github.io/EcoVision-Elite/",
+    "section":"assess",
+    "tags":["assessment","dashboard"],
+    "desc":"Visualise monitoring data, trends and management outcomes in interactive dashboards."
+  },
+  {
+    "id":"rapid-health",
+    "title":"Rapid Ecosystem Health Tool",
+    "url":"https://jaysecotools.github.io/Quick-Ecosystem-Health-Scorecard/",
+    "section":"assess",
+    "tags":["assessment","rapid"],
+    "desc":"Fast, field-friendly scoring to get a snapshot of ecosystem health with minimal inputs."
+  },
+  {
+    "id":"water-hub",
+    "title":"Water Quality Monitoring Hub",
+    "url":"https://jaysecotools.github.io/Water-Monitoring-Hub/",
+    "section":"assess",
+    "tags":["assessment","water","monitoring"],
+    "desc":"Enter, graph and analyse water quality data (pH, turbidity, dissolved oxygen etc.)."
+  },
+  {
+    "id":"enviroimpact",
+    "title":"EnviroImpact Assessment Tool",
+    "url":"https://jaysecotools.github.io/EnviroImpactUpgrade/",
+    "section":"assess",
+    "tags":["assessment","eia"],
+    "desc":"Guided environmental impact assessments with structured inputs and outputs."
+  },
+  {
+    "id":"eiatool",
+    "title":"Environmental Impact Assessment Tool v3.2.3",
+    "url":"https://jaysecotools.github.io/EIAToolv3.2.3/",
+    "section":"assess",
+    "tags":["assessment","eia"],
+    "desc":"Advanced EIA tool with additional reporting and analytics features for complex projects."
+  },
+  {
+    "id":"assessment-suite",
+    "title":"Comprehensive Ecosystem Assessment Suite",
+    "url":"https://jaysecotools.github.io/ecosystem-assessment-tools/",
+    "section":"assess",
+    "tags":["assessment","tools"],
+    "desc":"A collection of quick assessments and utilities for ecosystem evaluation and decision support."
+  }
+]
