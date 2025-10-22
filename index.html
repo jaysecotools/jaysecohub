@@ -24,7 +24,6 @@
     line-height:1.45;
   }
 
-  /* Top bar */
   header.appbar{
     position:sticky; top:0; z-index:60;
     backdrop-filter: blur(6px);
@@ -56,8 +55,9 @@
   .hero p{ margin:0; color:var(--muted) }
 
   .group{ margin-top:1rem; }
-  .group-head{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:0.6rem }
-  .group-head h3{ margin:0; color:var(--accent) }
+  .group-head{ display:flex; align-items:center; justify-content:space-between; gap:1rem; margin-bottom:0.6rem; cursor:pointer; user-select:none }
+  .group-head h3{ margin:0; color:var(--accent); display:flex; align-items:center; gap:0.5rem }
+  .group-head h3 .arrow{ display:inline-block; transition: transform 0.3s ease; font-size:0.9rem; }
 
   .tool-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:0.9rem }
   .card{ background:var(--card); padding:0.9rem; border-radius:12px; box-shadow:var(--shadow);
@@ -85,6 +85,9 @@
   .group-closed .collapsible{ max-height:0 }
   .group-open .collapsible{ max-height:3000px }
 
+  .group-closed .arrow{ transform: rotate(-90deg); }
+  .group-open .arrow{ transform: rotate(0deg); }
+
   footer{ max-width:1200px; margin:1.5rem auto; padding:1rem; color:var(--muted); text-align:center; font-size:0.9rem }
 
   @media (max-width:720px){
@@ -99,7 +102,6 @@
   <div class="inner">
     <div class="brand" aria-hidden="false">
       <div class="logo" aria-hidden="true">
-        <!-- leaf-in-circle (brand) -->
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
           <circle cx="12" cy="12" r="11" fill="rgba(255,255,255,0.14)"/>
           <path d="M7 14c2-4 6-6 9-7-1 3-3 6-6 8-1 0-3-1-3-1z" fill="#ffffff" opacity="0.96"/>
@@ -133,18 +135,12 @@
       <h2>Welcome — Jay's Ecosystem Management Suite</h2>
       <p class="muted">Browse by function, search for tools, and open quick-start links. These tools are standalone and classroom-ready for exploration and field learning.</p>
     </div>
-
-    <!-- Quick Start / Quick Access commented out for now (kept for easy restore)
-    <div style="margin-left:auto; display:flex; gap:0.6rem; align-items:center">
-      <div class="muted" style="font-size:0.92rem">Featured tools: <span class="badge">Quick start</span></div>
-    </div>
-    -->
   </div>
 
   <!-- LEARNING -->
   <section class="group group-open" id="group-learning" data-group="learning" aria-labelledby="learning-head">
     <div class="group-head">
-      <h3 id="learning-head">Learning & Reference</h3>
+      <h3 id="learning-head"><span class="arrow">▾</span> Learning & Reference</h3>
       <div class="group-controls">
         <button data-filter="learning" class="btn ghost small filter-btn">Learning</button>
       </div>
@@ -157,7 +153,7 @@
   <!-- SIMULATION -->
   <section class="group group-open" id="group-sim" data-group="sim" aria-labelledby="sim-head">
     <div class="group-head">
-      <h3 id="sim-head">Simulation & Scenario Tools</h3>
+      <h3 id="sim-head"><span class="arrow">▾</span> Simulation & Scenario Tools</h3>
       <div class="group-controls">
         <button data-filter="simulation" class="btn ghost small filter-btn">Simulation</button>
       </div>
@@ -170,7 +166,7 @@
   <!-- PLANNING -->
   <section class="group group-open" id="group-planning" data-group="planning" aria-labelledby="planning-head">
     <div class="group-head">
-      <h3 id="planning-head">Project Planning & Management</h3>
+      <h3 id="planning-head"><span class="arrow">▾</span> Project Planning & Management</h3>
       <div class="group-controls">
         <button data-filter="planning" class="btn ghost small filter-btn">Planning</button>
       </div>
@@ -183,7 +179,7 @@
   <!-- ASSESSMENT -->
   <section class="group group-open" id="group-assess" data-group="assess" aria-labelledby="assess-head">
     <div class="group-head">
-      <h3 id="assess-head">Assessment & Monitoring</h3>
+      <h3 id="assess-head"><span class="arrow">▾</span> Assessment & Monitoring</h3>
       <div class="group-controls">
         <button data-filter="assessment" class="btn ghost small filter-btn">Assessment</button>
       </div>
@@ -201,9 +197,6 @@
 </footer>
 
 <script>
-/* -------------------------
-   Load tools.json and render with coloured inline SVG icons
-   ------------------------- */
 (async function(){
   const path = 'tools.json';
   let tools = [];
@@ -220,88 +213,8 @@
     return;
   }
 
-  // Coloured SVG icons (inline)
-  const iconMap = {
-    inspection:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(111,207,111,0.12)"></rect>
-         <path d="M11 3h6v6" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--green-600') || '#2a7a2a'}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-         <path d="M21 21l-6-6" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--green-600') || '#2a7a2a'}" stroke-width="1.6" stroke-linecap="round"/>
-       </svg>`,
-
-    image:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(43,130,184,0.09)"></rect>
-         <rect x="3" y="5" width="18" height="14" rx="2" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--blue-500') || '#2b82b8'}" stroke-width="1.4"/>
-         <circle cx="9" cy="11" r="1.6" fill="${getComputedStyle(document.documentElement).getPropertyValue('--blue-500') || '#2b82b8'}"/>
-       </svg>`,
-
-    game:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(111,207,111,0.08)"></rect>
-         <path d="M12 2l3 7h7l-5.5 4 2 7L12 16 5.5 20l2-7L2 9h7z" fill="${getComputedStyle(document.documentElement).getPropertyValue('--green-600') || '#2a7a2a'}" opacity="0.9"/>
-       </svg>`,
-
-    simulation:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(255,213,77,0.07)"></rect>
-         <path d="M3 12h18" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--gold-500') || '#ffd54d'}" stroke-width="1.6"/>
-         <path d="M12 3v18" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--gold-500') || '#ffd54d'}" stroke-width="1.6"/>
-       </svg>`,
-
-    population:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(207,143,42,0.07)"></rect>
-         <circle cx="7" cy="8" r="2" fill="${getComputedStyle(document.documentElement).getPropertyValue('--ochre-500') || '#cf8f2a'}"/>
-         <circle cx="17" cy="8" r="2" fill="${getComputedStyle(document.documentElement).getPropertyValue('--ochre-500') || '#cf8f2a'}"/>
-         <path d="M2 20c2-6 8-6 10-6s8 0 10 6" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--neutral-400') || '#9aa39b'}" stroke-width="1.2"/>
-       </svg>`,
-
-    planner:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(111,207,111,0.06)"></rect>
-         <path d="M3 7h18" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--green-600') || '#2a7a2a'}" stroke-width="1.6"/>
-         <path d="M3 12h18" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--green-600') || '#2a7a2a'}" stroke-width="1.6"/>
-         <path d="M3 17h18" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--green-600') || '#2a7a2a'}" stroke-width="1.6"/>
-       </svg>`,
-
-    dashboard:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(43,130,184,0.06)"></rect>
-         <path d="M3 3v18h18" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--blue-500') || '#2b82b8'}" stroke-width="1.2"/>
-       </svg>`,
-
-    bio:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(255,213,77,0.06)"></rect>
-         <path d="M12 2l7 4v6c0 5-4 9-7 10-3-1-7-5-7-10V6z" fill="${getComputedStyle(document.documentElement).getPropertyValue('--ochre-500') || '#cf8f2a'}" opacity="0.95"/>
-       </svg>`,
-
-    water:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(43,130,184,0.08)"></rect>
-         <path d="M12 2s4 4 4 7-2 6-4 8-4-4-4-8 4-7 4-7z" fill="${getComputedStyle(document.documentElement).getPropertyValue('--blue-500') || '#2b82b8'}" opacity="0.95"/>
-       </svg>`,
-
-    default:
-      `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden>
-         <rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(154,163,155,0.06)"></rect>
-         <rect x="5" y="5" width="14" height="14" rx="2" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--neutral-400') || '#9aa39b'}" stroke-width="1.1"/>
-       </svg>`
-  };
-
-  function chooseIcon(tags=[]){
-    if(tags.includes('inspection')) return iconMap.inspection;
-    if(tags.includes('images')) return iconMap.image;
-    if(tags.includes('game')) return iconMap.game;
-    if(tags.includes('simulation')) return iconMap.simulation;
-    if(tags.includes('population')) return iconMap.population;
-    if(tags.includes('planning')) return iconMap.planner;
-    if(tags.includes('dashboard')) return iconMap.dashboard;
-    if(tags.includes('biosecurity') || tags.includes('bio')) return iconMap.bio;
-    if(tags.includes('water')) return iconMap.water;
-    return iconMap.default;
-  }
+  const iconMap = { default: `<svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden><rect x="0" y="0" width="24" height="24" rx="5" fill="rgba(154,163,155,0.06)"></rect><rect x="5" y="5" width="14" height="14" rx="2" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--neutral-400') || '#9aa39b'}" stroke-width="1.1"/></svg>` };
+  function chooseIcon(tags=[]){ return iconMap.default; }
 
   function renderTo(containerId, items){
     const container = document.getElementById(containerId);
@@ -331,13 +244,9 @@
   renderTo('section-planning', bySection.planning || []);
   renderTo('section-assess', bySection.assess || []);
 
-  // initial UI wiring once cards exist
   initUI();
 })();
 
-/* -------------------------
-   UI & interactions
-   ------------------------- */
 function initUI(){
   const themeToggle = document.getElementById('themeToggle'); const root = document.documentElement;
   const saved = localStorage.getItem('jr_theme'); if(saved === 'dark'){ root.setAttribute('data-theme','dark'); themeToggle.textContent='Light'; }
@@ -346,90 +255,44 @@ function initUI(){
     else { root.setAttribute('data-theme','dark'); themeToggle.textContent='Light'; localStorage.setItem('jr_theme','dark') }
   });
 
-  function expandGroup(g){
-    g.classList.remove('group-closed');
-    g.classList.add('group-open');
-    const coll = g.querySelector('.collapsible');
-    if(!coll) return;
-
-    // ensure it's visible so scrollHeight reports correctly
-    coll.style.display = '';
-
-    // clear any existing maxHeight so scrollHeight reflects the natural height
-    coll.style.maxHeight = '';
-
-    // force reflow so the browser updates layout before we read scrollHeight
-    // eslint-disable-next-line no-unused-expressions
-    coll.offsetHeight;
-
-    // set measured height to animate from 0 -> measured px
-    coll.style.maxHeight = coll.scrollHeight + 'px';
-
-    // after transition finishes, remove inline maxHeight so content can resize naturally
-    const onEnd = (e) => {
-      if(e && e.target !== coll) return;
-      coll.style.maxHeight = '';
-      coll.removeEventListener('transitionend', onEnd);
-    };
-    coll.addEventListener('transitionend', onEnd);
-  }
-
-  function collapseGroup(g){
-    g.classList.remove('group-open');
-    g.classList.add('group-closed');
-    const coll = g.querySelector('.collapsible');
-    if(!coll) return;
-
-    // set explicit height to current height so transition can animate to 0
-    coll.style.maxHeight = coll.scrollHeight + 'px';
-
-    // force reflow so the browser sees the starting height before setting 0
-    // eslint-disable-next-line no-unused-expressions
-    coll.offsetHeight;
-
-    // then set to 0 to animate closed
-    coll.style.maxHeight = '0px';
-  }
-
-  const searchBox = document.getElementById('searchBox'); const clearBtn = document.getElementById('clearSearch');
-  function normalize(s){ return s?.toString().toLowerCase().trim() }
-  function runSearch(q){
-    q = normalize(q);
-    const cards = Array.from(document.querySelectorAll('.card'));
-    cards.forEach(card=>{
-      const title = normalize(card.dataset.title || '');
-      const desc = normalize(card.querySelector('.desc')?.textContent || '');
-      const tags = normalize(card.dataset.tags || '');
-      const match = q === '' || title.includes(q) || desc.includes(q) || tags.includes(q);
-      card.style.display = match ? '' : 'none';
+  const searchBox = document.getElementById('searchBox');
+  const clearBtn = document.getElementById('clearSearch');
+  searchBox.addEventListener('input', ()=>{
+    const val = searchBox.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(c=>{
+      const title = c.dataset.title.toLowerCase();
+      const tags = (c.dataset.tags||'').toLowerCase();
+      c.style.display = (!val || title.includes(val) || tags.includes(val)) ? '' : 'none';
     });
-    clearBtn.style.display = q? 'inline-block':'none';
-  }
-  searchBox.addEventListener('input', e => runSearch(e.target.value));
-  clearBtn.addEventListener('click', ()=>{ searchBox.value=''; runSearch(''); searchBox.focus(); });
+    clearBtn.style.display = val?'inline-block':'none';
+  });
+  clearBtn.addEventListener('click', ()=>{
+    searchBox.value=''; searchBox.dispatchEvent(new Event('input'));
+  });
 
-  const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
-  filterBtns.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const filter = btn.dataset.filter;
-      const allCards = Array.from(document.querySelectorAll('.card'));
-      allCards.forEach(c=>{
-        if(filter==='all'){ c.style.display = '' }
-        else { c.style.display = c.dataset.tags.includes(filter) ? '' : 'none'; }
+  // COLLAPSIBLE HANDLING
+  const groups = Array.from(document.querySelectorAll('.group'));
+  function expandGroup(group){ group.classList.remove('group-closed'); group.classList.add('group-open'); }
+  function collapseGroup(group){ group.classList.remove('group-open'); group.classList.add('group-closed'); }
+
+  const openAllBtn = document.getElementById('openAll');
+  const closeAllBtn = document.getElementById('closeAll');
+  openAllBtn.addEventListener('click', ()=>groups.forEach(g=>expandGroup(g)));
+  closeAllBtn.addEventListener('click', ()=>groups.forEach(g=>collapseGroup(g)));
+
+  // Individual header toggle
+  groups.forEach(group=>{
+    const header = group.querySelector('.group-head');
+    if(header){
+      header.addEventListener('click', ()=>{
+        if(group.classList.contains('group-open')) collapseGroup(group);
+        else expandGroup(group);
       });
-    });
-  });
-
-  window.addEventListener('keydown', (e)=>{
-    if(e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA'){ e.preventDefault(); document.getElementById('searchBox').focus(); }
-  });
-
-  const fb = document.getElementById('reportFeedback'); if(fb) fb.addEventListener('click', (e)=>{ e.preventDefault();
-    const subject = encodeURIComponent('CEM Tools Hub feedback');
-    const body = encodeURIComponent('Hi Jay,%0D%0A%0D%0AFeedback about the CEM Tools Hub:%0D%0A%0D%0A(Please paste your feedback here)%0D%0A%0D%0APage: ' + location.href);
-    window.location.href = `mailto:jay@example.com?subject=${subject}&body=${body}`;
+    }
   });
 }
 </script>
+
 </body>
 </html>
