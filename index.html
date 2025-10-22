@@ -24,6 +24,16 @@
     line-height:1.45;
   }
 
+.magnifier {
+  transition: transform 0.25s ease, stroke 0.25s ease;
+  transform-origin: center center;
+}
+
+.search:hover .magnifier {
+  transform: scale(1.2) rotate(10deg);
+  stroke: var(--green-600);
+}
+  
   /* skip link - hidden until focused */
   .skip-link{
     position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; z-index:1000;
@@ -138,9 +148,9 @@
     </div>
 
 <div class="search" title="Search by name or description">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
-    <line x1="16.2" y1="16.2" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <svg class="magnifier" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+    <circle cx="11" cy="11" r="8" stroke="var(--accent)" stroke-width="2"/>
+    <line x1="16" y1="16" x2="22" y2="22" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
   </svg>
   <input id="searchBox" placeholder="Search tools (eg. water, biosecurity, simulator)" aria-label="Search tools" />
   <button id="clearSearch" class="btn ghost small" title="Clear search" style="display:none">Clear</button>
