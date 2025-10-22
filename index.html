@@ -33,7 +33,17 @@
   transform: scale(1.2) rotate(10deg);
   stroke: var(--green-600);
 }
-  
+  /* Pulse animation for the magnifier */
+@keyframes pulse {
+  0% { transform: scale(1); fill: var(--muted); }
+  50% { transform: scale(1.2); fill: var(--accent); }
+  100% { transform: scale(1); fill: var(--muted); }
+}
+
+.search svg.active {
+  animation: pulse 0.8s ease-in-out infinite;
+}
+
   /* skip link - hidden until focused */
   .skip-link{
     position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; z-index:1000;
@@ -304,18 +314,24 @@ function initUI(){
     else { root.setAttribute('data-theme','dark'); themeToggle.textContent='Light'; localStorage.setItem('jr_theme','dark') }
   });
 
-  const searchBox = document.getElementById('searchBox');
-  const clearBtn = document.getElementById('clearSearch');
-  searchBox.addEventListener('input', ()=>{
-    const val = searchBox.value.toLowerCase();
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(c=>{
-      const title = c.dataset.title.toLowerCase();
-      const tags = (c.dataset.tags||'').toLowerCase();
-      c.style.display = (!val || title.includes(val) || tags.includes(val)) ? '' : 'none';
-    });
-    clearBtn.style.display = val?'inline-block':'none';
+searchBox.addEventListener('input', ()=>{
+  const val = searchBox.value.toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  const magnifier = searchBox.closest('.search').querySelector('svg');
+  
+  cards.forEach(c=>{
+    const title = c.dataset.title.toLowerCase();
+    const tags = (c.dataset.tags||'').toLowerCase();
+    c.style.display = (!val || title.includes(val) || tags.includes(val)) ? '' : 'none';
   });
+
+  // toggle pulse on magnifier
+  if(val && magnifier) magnifier.classList.add('active');
+  else if(magnifier) magnifier.classList.remove('active');
+
+  clearBtn.style.display = val?'inline-block':'none';
+});
+
   clearBtn.addEventListener('click', ()=>{
     searchBox.value=''; searchBox.dispatchEvent(new Event('input'));
   });
