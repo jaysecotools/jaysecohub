@@ -37,6 +37,23 @@
     background: radial-gradient(circle at 30% 30%, var(--green-400) 0%, var(--green-600) 60%);
     box-shadow:var(--shadow); flex-shrink:0;
   }
+  /* Sparkling pulsing magnifier */
+.search svg {
+  transition: transform 0.2s ease, filter 0.2s ease;
+  fill: var(--muted);
+}
+
+.search svg.active {
+  animation: sparklePulse 1s infinite alternate;
+  filter: drop-shadow(0 0 4px var(--accent));
+}
+
+@keyframes sparklePulse {
+  0% { transform: scale(1); fill: var(--accent); filter: drop-shadow(0 0 2px var(--accent)); }
+  50% { transform: scale(1.12); fill: #8fe38f; filter: drop-shadow(0 0 6px #8fe38f); }
+  100% { transform: scale(1.2); fill: var(--accent); filter: drop-shadow(0 0 4px var(--accent)); }
+}
+
   .site-title{ line-height:1; }
   .site-title h1{ font-size:1.05rem; margin:0; color:#123; }
   .site-title p{ margin:0; color:var(--muted); font-size:0.88rem }
