@@ -24,47 +24,6 @@
     line-height:1.45;
   }
 
-.magnifier {
-  transition: transform 0.25s ease, stroke 0.25s ease;
-  transform-origin: center center;
-}
-
-.search:hover .magnifier {
-  transform: scale(1.2) rotate(10deg);
-  stroke: var(--green-600);
-}
-  /* Pulse animation for the magnifier */
-@keyframes pulse {
-  0% { transform: scale(1); fill: var(--muted); }
-  50% { transform: scale(1.2); fill: var(--accent); }
-  100% { transform: scale(1); fill: var(--muted); }
-}
-
-.search svg.active {
-  animation: pulse 0.8s ease-in-out infinite;
-}
-
-  /* skip link - hidden until focused */
-  .skip-link{
-    position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; z-index:1000;
-  }
-  .skip-link:focus{
-    left:1rem; top:1rem; width:auto; height:auto; overflow:visible; padding:0.4rem 0.6rem;
-    background:var(--card); border-radius:6px; box-shadow:var(--shadow); color:inherit; text-decoration:none;
-  }
-
-  /* keyboard focus visibility for interactive elements */
-  :focus {
-    outline: 3px solid rgba(43,130,184,0.18);
-    outline-offset: 2px;
-  }
-
-  /* make interactive headings visually focusable (if they receive focus via JS) */
-  .group-head[role="button"]:focus {
-    box-shadow: 0 0 0 4px rgba(43,130,184,0.06);
-    border-radius:8px;
-  }
-
   header.appbar{
     position:sticky; top:0; z-index:60;
     backdrop-filter: blur(6px);
@@ -84,7 +43,8 @@
 
   .controls{ margin-left:auto; display:flex; gap:0.6rem; align-items:center }
   .search{ display:flex; align-items:center; gap:0.6rem; background:var(--card); padding:6px 10px; border-radius:10px; box-shadow:var(--shadow) }
-  .search svg{ opacity:0.9 }
+  .search svg{ opacity:0.9; transition: transform 0.3s ease; }
+  .search svg.active{ transform: scale(1.2); }
   .search input{ border:0; outline:0; min-width:220px; font-size:0.95rem; background:transparent; color:inherit }
   .btn{ background:var(--accent); color:white; padding:8px 10px; border-radius:8px; border:0; cursor:pointer; font-weight:700; font-size:0.9rem }
   .btn.ghost{ background:transparent; color:var(--accent); border:1px solid rgba(0,0,0,0.06) }
@@ -103,9 +63,12 @@
   .tool-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:0.9rem }
   .card{ background:var(--card); padding:0.9rem; border-radius:12px; box-shadow:var(--shadow);
     border:1px solid rgba(0,0,0,0.03); display:flex; flex-direction:column; gap:0.6rem; min-height:130px;
-    transition: transform 160ms ease, box-shadow 160ms ease;
+    transition: transform 160ms ease, box-shadow 160ms ease, opacity 0.25s ease, transform 0.25s ease;
+    opacity:1; transform: translateY(0);
   }
   .card:hover{ transform: translateY(-6px); box-shadow: 0 18px 44px rgba(6,22,12,0.12); }
+  .card.hidden{ opacity:0; transform: translateY(10px); pointer-events:none; height:0; margin:0; padding:0.45rem 0.9rem; overflow:hidden; }
+
   .card h4{ margin:0; font-size:1rem; color:var(--accent); display:flex; gap:0.45rem; align-items:center }
   .card .icon{ width:46px; height:46px; display:grid; place-items:center; border-radius:10px; flex-shrink:0; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.04) }
   .meta{ display:flex; gap:0.45rem; align-items:center; flex-wrap:wrap }
@@ -139,9 +102,6 @@
 </head>
 <body>
 
-  <!-- Skip link for keyboard users -->
-  <a href="#maincontent" class="skip-link">Skip to main content</a>
-
 <header class="appbar" role="banner">
   <div class="inner">
     <div class="brand" aria-hidden="false">
@@ -157,26 +117,27 @@
       </div>
     </div>
 
-<div class="search" title="Search by name or description">
-  <svg class="magnifier" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
-    <circle cx="11" cy="11" r="8" stroke="var(--accent)" stroke-width="2"/>
-    <line x1="16" y1="16" x2="22" y2="22" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"/>
-  </svg>
-  <input id="searchBox" placeholder="Search tools (eg. water, biosecurity, simulator)" aria-label="Search tools" />
-  <button id="clearSearch" class="btn ghost small" title="Clear search" style="display:none">Clear</button>
-</div>
-
+    <div class="controls" role="search" aria-label="Search tools">
+      <div class="search" title="Search by name or description">
+        <!-- Magnifier SVG -->
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <circle cx="11" cy="11" r="7" stroke="#2a7a2a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="#2a7a2a" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <input id="searchBox" placeholder="Search tools (eg. water, biosecurity, simulator)" aria-label="Search tools" />
+        <button id="clearSearch" class="btn ghost small" title="Clear search" style="display:none">Clear</button>
+      </div>
 
       <div style="display:flex;gap:0.5rem;align-items:center">
-        <button id="openAll" class="btn ghost small" title="Open all sections" aria-controls="group-learning group-sim group-planning group-assess">Open all</button>
-        <button id="closeAll" class="btn ghost small" title="Close all sections" aria-controls="group-learning group-sim group-planning group-assess">Close all</button>
+        <button id="openAll" class="btn ghost small" title="Open all sections">Open all</button>
+        <button id="closeAll" class="btn ghost small" title="Close all sections">Close all</button>
         <button id="themeToggle" class="btn small" title="Toggle dark mode">Dark</button>
       </div>
     </div>
   </div>
 </header>
 
-<main id="maincontent">
+<main>
   <div class="hero" role="region" aria-label="Introduction">
     <div class="text">
       <h2>Welcome — Jay's Ecosystem Management Suite</h2>
@@ -188,11 +149,8 @@
   <section class="group group-open" id="group-learning" data-group="learning" aria-labelledby="learning-head">
     <div class="group-head">
       <h3 id="learning-head"><span class="arrow">▾</span> Learning & Reference</h3>
-      <div class="group-controls">
-        <button data-filter="learning" class="btn ghost small filter-btn">Learning</button>
-      </div>
     </div>
-    <div class="collapsible" id="collapsible-learning">
+    <div class="collapsible">
       <div id="section-learning" class="tool-grid"></div>
     </div>
   </section>
@@ -201,11 +159,8 @@
   <section class="group group-open" id="group-sim" data-group="sim" aria-labelledby="sim-head">
     <div class="group-head">
       <h3 id="sim-head"><span class="arrow">▾</span> Simulation & Scenario Tools</h3>
-      <div class="group-controls">
-        <button data-filter="simulation" class="btn ghost small filter-btn">Simulation</button>
-      </div>
     </div>
-    <div class="collapsible" id="collapsible-sim">
+    <div class="collapsible">
       <div id="section-sim" class="tool-grid"></div>
     </div>
   </section>
@@ -214,11 +169,8 @@
   <section class="group group-open" id="group-planning" data-group="planning" aria-labelledby="planning-head">
     <div class="group-head">
       <h3 id="planning-head"><span class="arrow">▾</span> Project Planning & Management</h3>
-      <div class="group-controls">
-        <button data-filter="planning" class="btn ghost small filter-btn">Planning</button>
-      </div>
     </div>
-    <div class="collapsible" id="collapsible-planning">
+    <div class="collapsible">
       <div id="section-planning" class="tool-grid"></div>
     </div>
   </section>
@@ -227,19 +179,15 @@
   <section class="group group-open" id="group-assess" data-group="assess" aria-labelledby="assess-head">
     <div class="group-head">
       <h3 id="assess-head"><span class="arrow">▾</span> Assessment & Monitoring</h3>
-      <div class="group-controls">
-        <button data-filter="assessment" class="btn ghost small filter-btn">Assessment</button>
-      </div>
     </div>
-    <div class="collapsible" id="collapsible-assess">
+    <div class="collapsible">
       <div id="section-assess" class="tool-grid"></div>
     </div>
   </section>
-
 </main>
 
 <section id="disclaimer" style="max-width:1200px;margin:1.5rem auto;padding:1rem 1.25rem;border-radius:12px;background:var(--card);box-shadow:var(--shadow);border:1px solid rgba(0,0,0,0.03)">
-  <details open>
+  <details>
     <summary style="cursor:pointer;font-weight:600;color:var(--accent)">Disclaimer</summary>
     <p class="muted" style="margin-top:0.5rem;font-size:0.9rem">
       The tools and resources provided through the CEM Tools Hub are intended for educational use within Conservation and Ecosystem Management training. 
@@ -281,7 +229,6 @@
       const icon = chooseIcon(item.tags || []);
       const badgeHtml = item.badge ? `<span class="badge" style="margin-left:8px">${item.badge}</span>` : '';
       const tagsAttr = (item.tags || []).join(',');
-      // add noreferrer for security/privacy
       return `
         <article class="card" data-tags="${tagsAttr}" data-title="${item.title}">
           <div style="display:flex;gap:0.8rem;align-items:flex-start">
@@ -292,7 +239,7 @@
               <p class="desc">${item.desc}</p>
             </div>
           </div>
-          <div class="links"><a href="${item.url}" target="_blank" rel="noopener noreferrer">Open</a></div>
+          <div class="links"><a href="${item.url}" target="_blank" rel="noopener">Open</a></div>
         </article>`;
     }).join('');
   }
@@ -314,76 +261,57 @@ function initUI(){
     else { root.setAttribute('data-theme','dark'); themeToggle.textContent='Light'; localStorage.setItem('jr_theme','dark') }
   });
 
-searchBox.addEventListener('input', ()=>{
-  const val = searchBox.value.toLowerCase();
-  const cards = document.querySelectorAll('.card');
-  const magnifier = searchBox.closest('.search').querySelector('svg');
-  
-  cards.forEach(c=>{
-    const title = c.dataset.title.toLowerCase();
-    const tags = (c.dataset.tags||'').toLowerCase();
-    c.style.display = (!val || title.includes(val) || tags.includes(val)) ? '' : 'none';
+  const searchBox = document.getElementById('searchBox');
+  const clearBtn = document.getElementById('clearSearch');
+
+  searchBox.addEventListener('input', ()=>{
+    const val = searchBox.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    const magnifier = searchBox.closest('.search').querySelector('svg');
+
+    cards.forEach(c=>{
+      const title = c.dataset.title.toLowerCase();
+      const tags = (c.dataset.tags||'').toLowerCase();
+      if(!val || title.includes(val) || tags.includes(val)){
+        c.classList.remove('hidden');
+      } else {
+        c.classList.add('hidden');
+      }
+    });
+
+    if(val && magnifier) magnifier.classList.add('active');
+    else if(magnifier) magnifier.classList.remove('active');
+
+    clearBtn.style.display = val?'inline-block':'none';
   });
-
-  // toggle pulse on magnifier
-  if(val && magnifier) magnifier.classList.add('active');
-  else if(magnifier) magnifier.classList.remove('active');
-
-  clearBtn.style.display = val?'inline-block':'none';
-});
 
   clearBtn.addEventListener('click', ()=>{
     searchBox.value=''; searchBox.dispatchEvent(new Event('input'));
   });
 
-  // COLLAPSIBLE HANDLING (accessible)
-  const groups = Array.from(document.querySelectorAll('.group'));
+  document.getElementById('openAll').addEventListener('click', ()=> toggleGroups(true));
+  document.getElementById('closeAll').addEventListener('click', ()=> toggleGroups(false));
 
-  function expandGroup(group){
-    group.classList.remove('group-closed'); group.classList.add('group-open');
-    const head = group.querySelector('.group-head');
-    if(head) head.setAttribute('aria-expanded','true');
-  }
-  function collapseGroup(group){
-    group.classList.remove('group-open'); group.classList.add('group-closed');
-    const head = group.querySelector('.group-head');
-    if(head) head.setAttribute('aria-expanded','false');
-  }
-
-  // initialise group headers with ARIA and keyboard handlers
-  groups.forEach(group => {
-    const header = group.querySelector('.group-head');
-    const collapsible = group.querySelector('.collapsible');
-    if(!header) return;
-    // make header keyboard and screen-reader accessible
-    header.setAttribute('role','button');
-    header.setAttribute('tabindex','0');
-    const expanded = group.classList.contains('group-open') ? 'true' : 'false';
-    header.setAttribute('aria-expanded', expanded);
-    if(collapsible && collapsible.id) header.setAttribute('aria-controls', collapsible.id);
-
-    // handle click
-    header.addEventListener('click', () => {
-      if(group.classList.contains('group-open')) collapseGroup(group);
-      else expandGroup(group);
-    });
-
-    // handle keyboard (Enter / Space)
-    header.addEventListener('keydown', (ev) => {
-      if(ev.key === 'Enter' || ev.key === ' ' || ev.key === 'Spacebar'){
-        ev.preventDefault();
-        header.click();
-      }
+  document.querySelectorAll('.group-head').forEach(head=>{
+    head.addEventListener('click', ()=>{
+      const group = head.closest('.group');
+      group.classList.toggle('group-open');
+      group.classList.toggle('group-closed');
     });
   });
-
-  // open/close all buttons update aria-expanded on each header
-  const openAllBtn = document.getElementById('openAll');
-  const closeAllBtn = document.getElementById('closeAll');
-  openAllBtn.addEventListener('click', ()=> groups.forEach(g=>expandGroup(g)));
-  closeAllBtn.addEventListener('click', ()=> groups.forEach(g=>collapseGroup(g)));
 }
-</script>
 
+function toggleGroups(open=true){
+  document.querySelectorAll('.group').forEach(g=>{
+    if(open){ g.classList.add('group-open'); g.classList.remove('group-closed'); }
+    else { g.classList.remove('group-open'); g.classList.add('group-closed'); }
+  });
+}
+
+// Shortcut for focusing search
+document.addEventListener('keydown', e=>{
+  if(e.key === '/') { e.preventDefault(); document.getElementById('searchBox').focus(); }
+});
+</script>
 </body>
 </html>
