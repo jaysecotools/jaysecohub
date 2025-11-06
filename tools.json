@@ -1,11 +1,11 @@
 [
   {
     "id":"ahcecr309",
-    "title":"Ecological & Cultural Site Inspection Guide",
+    "title":"Ecological & Cultural Site Inspection Learning Guide",
     "url":"https://jaysecotools.github.io/AHCECR309-Learning-Resource/",
     "section":"learning",
     "tags":["learning","inspection"],
-    "desc":"Interactive modules and practical exercises for conducting ecological and cultural site inspections (Conduct Ecological and Cultural Site Inspections)."
+    "desc":"Interactive modules and practical exercises for conducting ecological and cultural site inspections."
   },
   {
     "id":"maintenance-ref",
@@ -13,7 +13,7 @@
     "url":"https://jaysecotools.github.io/Ecosystem-Maintenance-Learning-Guide/",
     "section":"learning",
     "tags":["learning","reference","maintenance"],
-    "desc":"Stepwise guidance and field tips for common maintenance tasks and restoration workflows."
+    "desc":"Stepwise guidance and field tips for common maintenance tasks and restoration workflows (Includes link to a comprehensive unit resource)."
   },
   {
     "id":"ecoquest",
@@ -49,15 +49,15 @@
   },
   {
     "id":"ser-planner",
-    "title":"Restoration Project Planner",
+    "title":"Ecological Restoration Project Planner",
     "url":"https://jaysecotools.github.io/SER-based-Project-Planner/",
     "section":"planning",
     "tags":["planning","restoration"],
-    "desc":"National Standards for Ecological Restoration - Stepwise planner for restoration works and timelines, project scoping and sequencing."
+    "desc":"National Standards for Ecological Restoration based stepwise planner for restoration works and timelines, project scoping and sequencing."
   },
   {
     "id":"restoration-manager",
-    "title":"Restoration Project Manager",
+    "title":"Ecological Restoration Project Manager",
     "url":"https://jaysecotools.github.io/Ecological-Restoration-Project-Manager/",
     "section":"planning",
     "tags":["planning","manager"],
@@ -65,7 +65,7 @@
   },
   {
     "id":"maintenance-dashboard",
-    "title":"Simplified Ecosystem Maintenance Dashboard",
+    "title":"Ecosystem Maintenance Dashboard",
     "url":"https://jaysecotools.github.io/Ecosystem-maintenance-tool-usable/",
     "section":"planning",
     "tags":["planning","dashboard"],
@@ -73,11 +73,11 @@
   },
   {
     "id":"leap",
-    "title":"Environmental Action Planner (LEAP)",
+    "title":"Landholder Environmental Action Planner (LEAP)",
     "url":"https://jaysecotools.github.io/LEAP-Environmental-Action-Planner/",
     "section":"planning",
     "tags":["planning","actions"],
-    "desc":"Landholder Environmental Action Planner."
+    "desc":"Plan for sustainable land management and property environmental works."
   },
   {
     "id":"simple-eia",
