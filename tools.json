@@ -9,7 +9,7 @@
   },
   {
     "id":"maintenance-ref",
-    "title":"Ecosystem Maintenance Reference",
+    "title":"Ecosystem Maintenance Learning Guide",
     "url":"https://jaysecotools.github.io/Ecosystem-Maintenance-Learning-Guide/",
     "section":"learning",
     "tags":["learning","reference","maintenance"],
@@ -17,7 +17,7 @@
   },
   {
     "id":"ecoquest",
-    "title":"EcoQuest Adventure",
+    "title":"EcoQuest Adventure Game",
     "url":"https://jaysecotools.github.io/EcoQuest_AI/",
     "section":"learning",
     "tags":["learning","game"],
@@ -25,7 +25,7 @@
   },
   {
     "id":"env-decision-sim",
-    "title":"Environmental Decision Simulator",
+    "title":"Environmental Management Tool & Simulator",
     "url":"https://jaysecotools.github.io/Environmental-Management-Simulation-Tool/",
     "section":"sim",
     "tags":["simulation","decision"],
@@ -33,19 +33,11 @@
   },
   {
     "id":"pop-dynamics",
-    "title":"Population Dynamics Simulator",
+    "title":"Population Dynamics Explainer & Simulator",
     "url":"https://jaysecotools.github.io/Population-dynamics-learning-tool/",
     "section":"sim",
     "tags":["simulation","population"],
     "desc":"Experiment with species population changes and predator–prey dynamics with variable inputs."
-  },
-  {
-    "id":"ecosimv3",
-    "title":"Ecosystem Simulator v3",
-    "url":"https://jaysecotools.github.io/EcoSimv3/",
-    "section":"sim",
-    "tags":["simulation","ecosystem"],
-    "desc":"Comprehensive ecosystem simulation with multiple species, interactions and environmental variables."
   },
   {
     "id":"ecosim-v2",
@@ -61,7 +53,7 @@
     "url":"https://jaysecotools.github.io/SER-based-Project-Planner/",
     "section":"planning",
     "tags":["planning","restoration"],
-    "desc":"SER-based stepwise planner for restoration works and timelines, project scoping and sequencing."
+    "desc":"Stepwise planner for restoration works and timelines, project scoping and sequencing, based on the National Standards for Ecological Restoration."
   },
   {
     "id":"restoration-manager",
@@ -72,14 +64,6 @@
     "desc":"Manage restoration project schedules, resources, and progress tracking in a single place."
   },
   {
-    "id":"native-tracker",
-    "title":"Native Ecosystem Tracker",
-    "url":"https://jaysecotools.github.io/NativeEcosystemMaintenanceToolAHCECR301/",
-    "section":"planning",
-    "tags":["planning","maintenance"],
-    "desc":"Log maintenance activities and track condition in native ecosystem areas. (Maintain Native Ecosystem Areas)"
-  },
-  {
     "id":"maintenance-dashboard",
     "title":"Simplified Ecosystem Maintenance Dashboard",
     "url":"https://jaysecotools.github.io/Ecosystem-maintenance-tool-usable/",
@@ -88,20 +72,12 @@
     "desc":"Overview of maintenance tasks, monitoring logs and site notes — a hub for daily work."
   },
   {
-    "id":"eco-manager",
-    "title":"Advanced Environmental Management Dashboard",
-    "url":"https://jaysecotools.github.io/EcoManager-Pro/",
-    "section":"planning",
-    "tags":["planning","dashboard"],
-    "desc":"High-level dashboard for planning and monitoring environmental projects and outcomes."
-  },
-  {
     "id":"leap",
     "title":"Environmental Action Planner (LEAP)",
     "url":"https://jaysecotools.github.io/LEAP-Environmental-Action-Planner/",
     "section":"planning",
     "tags":["planning","actions"],
-    "desc":"Plan, allocate and track environmental actions and tasks across projects."
+    "desc":"Landholder Environmental Action Planner."
   },
   {
     "id":"simple-eia",
