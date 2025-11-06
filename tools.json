@@ -45,7 +45,7 @@
     "url":"https://jaysecotools.github.io/Eco-Sim-v2.5/",
     "section":"sim",
     "tags":["simulation","legacy"],
-    "desc":"Earlier version of the simulator — useful for legacy examples or comparison."
+    "desc":"Comprehensive ecosystem simulation with multiple species, interactions and environmental variables."
   },
   {
     "id":"ser-planner",
@@ -53,7 +53,7 @@
     "url":"https://jaysecotools.github.io/SER-based-Project-Planner/",
     "section":"planning",
     "tags":["planning","restoration"],
-    "desc":"Stepwise planner for restoration works and timelines, project scoping and sequencing, based on the National Standards for Ecological Restoration."
+    "desc":"National Standards for Ecological Restoration - Stepwise planner for restoration works and timelines, project scoping and sequencing."
   },
   {
     "id":"restoration-manager",
@@ -81,7 +81,7 @@
   },
   {
     "id":"simple-eia",
-    "title":"Simple Environmental Impact Tool",
+    "title":"Simple Environmental Impact Assessment Tool",
     "url":"https://jaysecotools.github.io/Basic-Environmental-Impact-Assessment/",
     "section":"assess",
     "tags":["assessment","eia"],
@@ -105,7 +105,7 @@
   },
   {
     "id":"bio-assess",
-    "title":"Biosecurity Assessment Tool",
+    "title":"Biosecurity Risk Assessment Tool",
     "url":"https://jaysecotools.github.io/BiosecurityAssessmentUpdate2/",
     "section":"assess",
     "tags":["assessment","biosecurity"],
@@ -113,7 +113,7 @@
   },
   {
     "id":"ecsa",
-    "title":"Ecosystem Condition Scoring Tool",
+    "title":"Ecological & Cultural Site Inspection Assessment Tool",
     "url":"https://jaysecotools.github.io/ECSA-Tool/",
     "section":"assess",
     "tags":["assessment","scoring"],
@@ -141,7 +141,7 @@
     "url":"https://jaysecotools.github.io/Water-Monitoring-Hub/",
     "section":"assess",
     "tags":["assessment","water","monitoring"],
-    "desc":"Enter, graph and analyse water quality data (pH, turbidity, dissolved oxygen etc.)."
+    "desc":"record and analyse water quality data (pH, turbidity, dissolved oxygen etc.)."
   },
   {
     "id":"enviroimpact",
